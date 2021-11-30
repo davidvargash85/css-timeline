@@ -1,0 +1,113 @@
+:root {
+  --gray-dark: #212121;
+  --gray-dark-md: #313131;
+  --gray-light: #d3d3d3;
+  --orange: rgb(255, 108, 50);
+  --black: #111;
+  --font-family: sans-serif;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2.5rem;
+  --spacing-sm: 1.0rem;
+  --spacing-xs: 0.5rem;
+  --font-size-md: 1.5rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--black);
+  font-family: var(--font-family);
+}
+
+.timeline {
+  background-color: var(--gray-dark);
+  padding: var(--spacing-md);
+}
+
+.card {
+  background-color: var(--gray-dark-md);
+  border-radius: var(--spacing-md);
+  position: relative;
+  padding: var(--spacing-sm);
+}
+
+.card:nth-child(odd) {
+  margin: 3.0rem 0 3.0rem 3.0rem;
+}
+
+.card:nth-child(even) {
+  margin: 3.0rem 3.0rem 3.0rem 0;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  border: solid var(--orange);
+  width: 50%;
+}
+
+.card:nth-child(odd)::before {
+  left: -26px;
+  top: -26px;
+  bottom: -26px;
+  border-width: 5px 0 5px 5px;
+  border-radius: 40px 0 0 40px;
+}
+
+.card:nth-child(even)::before {
+  right: -27px;
+  top: -27px;
+  bottom: -27px;
+  border-width: 5px 5px 5px 0px;
+  border-radius: 0 40px 40px 0;
+}
+
+.card:first-child::before {
+  border-top: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.card:last-child::before {
+  border-bottom: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.card__info {
+  color: var(--gray-light);
+}
+
+.card__tittle { 
+  position: relative;
+  color: var(--orange);
+  font-size: var(--font-size-md);
+  font-weight: bold;
+  padding: var(--spacing-sm) 0;
+}
+
+.card__tittle::before {
+  position: absolute;
+  content: "";
+  width: var(--spacing-sm);
+  height: var(--spacing-sm);
+  background-color: var(--gray-light);
+  border: 3px solid var(--orange);
+  border-radius: 50%;
+}
+
+.card:nth-child(even) .card__tittle {
+  text-align: right;
+}
+
+.card:nth-child(odd) .card__tittle::before {
+  left: -51px;
+}
+
+.card:nth-child(even) .card__tittle::before {
+  right: -51px;
+}
